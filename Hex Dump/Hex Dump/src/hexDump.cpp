@@ -84,6 +84,41 @@ void printHexDump(string &fileName, unsigned char *data, int dataLength) {
 
 	if (!fout.bad()) {
 
+		fout << "HEX DUMP FOR FILE: " << fileName << endl;
+
+		string asciiOutput = "";
+
+		for (int i = 0; i < dataLength; i++) {
+
+			if (i % 16 == 0) {
+
+				fout << "  " << asciiOutput << endl;
+				asciiOutput = "";
+				fout << hex << setw(8) << setfill('0') << uppercase << i << ": ";
+			}
+
+			fout << ' ' << hex << setw(2) << setfill('0') << uppercase << (int)data[i];
+
+			// Non-printable characters are replaced with '.'
+			if ((int)data[i] < 31 || (int)data[i] > 126) {
+
+				asciiOutput += '.';
+			} else {
+
+				asciiOutput += (int)data[i];
+			}
+		}
+
+		if (asciiOutput != "") {
+
+			// Align with other ascii sections
+			for (int i = 0; i < 16 - (dataLength % 16); i++) {
+
+				fout << "   ";
+			}
+
+			fout << "  " << asciiOutput << endl;
+		}
 	} else {
 
 		cout << "Error: Unable to write to file: " << outputFileName << endl;
