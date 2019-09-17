@@ -23,12 +23,13 @@ using namespace std;
 
 		Params:
 			fileName - type string &, the name of the file
+			oDataLength - type int &, output the number of bytes in the data
 
 		Return:
 			type unsigned char *, the binary data
 
 ******************************************************************************/
-unsigned char *readBinaryFile(string &fileName) {
+unsigned char *readBinaryFile(string &fileName, int &oDataLength) {
 
 	unsigned char *buffer;
 
@@ -46,6 +47,8 @@ unsigned char *readBinaryFile(string &fileName) {
 			cout << "Error: Unable to allocate buffer" << endl;
 			exit(EXIT_FAILURE);
 		}
+
+		oDataLength = sizeOfFile;
 
 		fin.seekg(0, ios::beg);
 		fin.read((char *)buffer, sizeOfFile);
