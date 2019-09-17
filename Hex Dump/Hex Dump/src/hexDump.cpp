@@ -41,7 +41,7 @@ unsigned char *readBinaryFile(string &fileName) {
 		try {
 
 			buffer = new unsigned char[sizeOfFile];
-		} catch (bad_alloc&) {
+		} catch (bad_alloc &e) {
 
 			cout << "Error: Unable to allocate buffer" << endl;
 			exit(EXIT_FAILURE);
@@ -65,6 +65,8 @@ int main() {
 	string fileName = "";
 
 	do {
+
+		cout << "Enter file name: ";
 
 		getline(cin, fileName);
 	} while (fileName == "");
