@@ -63,6 +63,23 @@ unsigned char *readBinaryFile(string &fileName, int &oDataLength) {
 	return buffer;
 }
 
+/******************************************************************************
+		Name: printHexDump
+
+		Des:
+			Print hex dump of the data to a file
+
+		Params:
+			fileName - type string &, the name of the file
+			data - type unsigned char *, the data to be printed
+			dataLength - type int, length of the data
+
+******************************************************************************/
+void printHexDump(string &fileName, unsigned char *data, int dataLength) {
+
+
+}
+
 int main() {
 
 	string fileName = "";
@@ -74,7 +91,9 @@ int main() {
 		getline(cin, fileName);
 	} while (fileName == "");
 
-	unsigned char *buffer = readBinaryFile(fileName);
+	int dataLength;
+
+	unsigned char *buffer = readBinaryFile(fileName, dataLength);
 
 	return 0;
 }
