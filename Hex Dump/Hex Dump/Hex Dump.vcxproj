@@ -128,6 +128,9 @@
   <ItemGroup>
     <Image Include="Ballbmp.BMP" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ballbmp.dmp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
