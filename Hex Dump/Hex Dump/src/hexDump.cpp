@@ -10,8 +10,9 @@
 ******************************************************************************/
 
 #include <fstream>
-#include<iostream>
-#include<string>
+#include <iomanip>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -70,14 +71,27 @@ unsigned char *readBinaryFile(string &fileName, int &oDataLength) {
 			Print hex dump of the data to a file
 
 		Params:
-			fileName - type string &, the name of the file
+			fileName - type string &, the name of the original file
 			data - type unsigned char *, the data to be printed
 			dataLength - type int, length of the data
 
 ******************************************************************************/
 void printHexDump(string &fileName, unsigned char *data, int dataLength) {
 
+	string outputFileName = fileName.substr(0, fileName.find_last_of('.')) + ".dmp";
 
+	ofstream fout(outputFileName, ios::out);
+
+	if (!fout.bad()) {
+
+	} else {
+
+		cout << "Error: Unable to write to file: " << outputFileName << endl;
+		fout.close();
+		exit(EXIT_FAILURE);
+	}
+
+	fout.close();
 }
 
 int main() {
@@ -93,7 +107,9 @@ int main() {
 
 	int dataLength;
 
-	unsigned char *buffer = readBinaryFile(fileName, dataLength);
+	unsigned char *data = readBinaryFile(fileName, dataLength);
+
+	printHexDump(fileName, data, dataLength);
 
 	return 0;
 }
