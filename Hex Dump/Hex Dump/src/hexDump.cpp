@@ -37,7 +37,15 @@ unsigned char *readBinaryFile(string &fileName) {
 	if (fin.is_open()) {
 
 		int sizeOfFile = (int)fin.tellg();
-		buffer = new unsigned char[sizeOfFile];
+
+		try {
+
+			buffer = new unsigned char[sizeOfFile];
+		} catch (bad_alloc&) {
+
+			cout << "Error: Unable to allocate buffer" << endl;
+			exit(EXIT_FAILURE);
+		}
 
 		fin.seekg(0, ios::beg);
 		fin.read((char *)buffer, sizeOfFile);
