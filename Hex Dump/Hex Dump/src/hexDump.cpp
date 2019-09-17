@@ -1,5 +1,5 @@
 /******************************************************************************
-	Name: main.cpp
+	Name: hexDump.cpp
 
 	Des:
 		This program will read a binary file and output the hex dump

@@ -123,7 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\hexDump.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Ballbmp.BMP" />
