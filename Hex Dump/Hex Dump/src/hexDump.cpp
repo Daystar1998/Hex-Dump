@@ -149,5 +149,7 @@ int main() {
 
 	printHexDump(fileName, data, dataLength);
 
+	delete data;
+
 	return 0;
 }
