@@ -111,10 +111,13 @@ void printHexDump(string &fileName, unsigned char *data, int dataLength) {
 
 		if (asciiOutput != "") {
 
-			// Align with other ascii sections
-			for (int i = 0; i < 16 - (dataLength % 16); i++) {
+			if (dataLength % 16 != 0) {
 
-				fout << "   ";
+				// Align with other ascii sections
+				for (int i = 0; i < 16 - (dataLength % 16); i++) {
+
+					fout << "   ";
+				}
 			}
 
 			fout << "  " << asciiOutput << endl;
