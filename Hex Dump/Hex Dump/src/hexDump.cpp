@@ -46,6 +46,7 @@ unsigned char *readBinaryFile(string &fileName, int &oDataLength) {
 		} catch (bad_alloc) {
 
 			cout << "Error: Unable to allocate buffer" << endl;
+			fin.close();
 			exit(EXIT_FAILURE);
 		}
 
@@ -58,6 +59,7 @@ unsigned char *readBinaryFile(string &fileName, int &oDataLength) {
 	} else {
 
 		cout << "Error: Unable to open file: " << fileName << endl;
+		fin.close();
 		exit(EXIT_FAILURE);
 	}
 
